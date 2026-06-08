@@ -24,4 +24,4 @@ def stub():
 
 def test_say_hello(stub):
     response = stub.SayHello(service_pb2.SayHelloRequest(name="World"))
-    assert response.message == "Hello, World!"
+    assert response.message == "Onetime, World!"

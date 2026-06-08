@@ -1,0 +1,24 @@
+services:
+  scala-server:
+    build:
+      context: ./proto/scala-grpc-sandbox
+      dockerfile: Dockerfile
+    ports:
+      - "9091:9091"
+    environment:
+      GRPC_PORT: "9091"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/127.0.0.1/9091'"]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+      start_period: 30s
+
+  python-tests:
+    build: .
+    depends_on:
+      scala-server:
+        condition: service_healthy
+    environment:
+      GRPC_HOST: scala-server
+      GRPC_PORT: "9091"
