@@ -1,0 +1,3 @@
+[submodule "proto/scala-grpc-sandbox"]
+	path = proto/scala-grpc-sandbox
+	url = https://github.com/forPetProject/scala-grpc-sandbox.git
