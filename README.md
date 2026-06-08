@@ -9,7 +9,7 @@ Python-тесты для gRPC-сервиса из [scala-grpc-sandbox](https://g
 ```bash
 git clone --recurse-submodules https://github.com/forPetProject/python_sandbox_testscala.git
 cd python_sandbox_testscala
-docker compose up --build
+docker compose up --build --abort-on-container-exit --exit-code-from python-tests
 ```
 
 Что происходит:
